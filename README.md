@@ -13,6 +13,8 @@ The python package networkx to display this information as a graph('VitaminD_cli
 ***
 In DrugReactionsCountry2.py the OpenFDA web API is queried for drug reactions and their counts occuring in Great Britain, United States and Canada.
 This was used to detect the twelve most common reactions in Great Britain, and this is displayed in a pie chart ('MajorReactionsGB.py').
-Following this I print a list of drug adverse reactions common to all three counties. I lso plot the names of adverse reactions known only to one country.
+Following this I print, 
+    1. a list of drug adverse reactions common to all three counties. 
+    2. adverse reactions known only to one country.
 This could aid processing of further adverse reaction reports as it could form a start for mapping reaction names used by doctors between countries.
 However, there are some surprises, for example 'stress' and 'asthma' are apparently only common terms in Canada. Suggest this needs further investigation, to ensure there isnt a bug!
