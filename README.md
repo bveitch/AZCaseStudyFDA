@@ -3,14 +3,12 @@
 Respository contains two Python files: DrugCliques2.py and DrugReactionsCountry2.py
 
 In DrugCliques2.py the OpenFDA web API is queried for adverse drug effects with a seriousness 2 in Canada using a limit of 20.
-(Each of these parameters is optional and can be changed)
-For each of these queries we search for the drug names appearing in each patient record. 
-Drugs appearing for each patient are grouped in a list.
-Following this we search for each individual drug name and find all other drugs which appear together with that list for each patient.
-That is a dictionary of drugs which appear together with any other drug.
-Finally the dictionary is interrogated to find all drugs, d, which occur with 'VITAMIN D'. Furthermore we continue this process one stage further so that for every drug 
-occuring with any drug d.
-I use the python package networkx to display this information as a graph('VitaminD_clique2.py') The motivation for this was to detect cliques (groups of drugs used together) in treatment regimens.
+(Each of these parameters is optional and can be changed).
+
+For each of these queries we search for the names of each drug appearing in each patient record. These can be multiple, and drugs appearing for each patient are grouped in a list.
+Following this a python dictionary is built, the key for this dictionary is each individual drug name and its values are the names of all other drugs which appear together with the key in the drug list for each patient. From this, I find the names of all drugs, d, which occur with the drug 'VITAMIN D'. This is contiued one stage further to find all drugs used together in a patients treatment with any of the drug d.
+
+The python package networkx to display this information as a graph('VitaminD_clique2.py') The motivation for this was to detect cliques (groups of drugs typically used together) in treatment regimens.
 
 In DrugReactionsCountry2.py the OpenFDA web API is queried for drug reactions and their counts occuring in Great Britain, United States and Canada.
 This was used to detect the twelve most common reactions in Great Britain, and this is displayed in a pie chart ('MajorReactionsGB.py').
