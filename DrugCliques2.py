@@ -76,7 +76,7 @@ for e in E:
     G.add_edge(e[0],e[1])
     
 fig, ax = plt.subplots(figsize=(8,5))    
-nx.draw_random(G,with_labels=True, width=0.4,style='dashdot',node_size=1,font_weight='bold',font_size=6,font_color='b')
+nx.draw(G,with_labels=True, width=0.4,style='dashdot',node_size=1,font_weight='bold',font_size=6,font_color='b')
 title="Drugs taken with {}".format(root)
 ax.set_title(title, fontweight="bold")
 ax.set_xticks([])
