@@ -6,7 +6,7 @@ In DrugCliques2.py the OpenFDA web API is queried for adverse drug effects with 
 (Each of these parameters is optional and can be changed).
 
 For each of these queries we search for the names of each drug appearing in each patient record. These can be multiple, and drugs appearing for each patient are grouped in a list.
-Following this a python dictionary is built, the key for this dictionary is each individual drug name and its values are the names of all other drugs which appear together with the key in the drug list for each patient. From this, I find the names of all drugs, d, which occur with the drug 'VITAMIN D'. This is contiued one stage further to find all drugs used together in a patients treatment with any of the drug d.
+Following this a python dictionary is built, the key for this dictionary is each individual drug name and its values are the names of all other drugs which appear together with the key in the drug list for each patient. From this, I find the first degree decendants of 'VITAMIN D', that is the names of all drugs, d, which occur in the drug list along with 'VITAMIN D'. This is contiued one stage further to find the second degree decendants; all drugs used together in a patients treatment with any of the drugs, d.
 
 The python package networkx was used to display this information as a graph('VitaminD_clique2.py'). The motivation for this was to detect cliques (groups of drugs typically used together) in treatment regimens. The program has been tested for 'CALCIUM' and 'WELLBUTRIN' in addition to 'VITAMIN_D'.
 
