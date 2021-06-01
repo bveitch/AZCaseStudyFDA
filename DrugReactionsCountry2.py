@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jun  1 19:11:59 2021
 
-@author: myconda
+"""
+Given a list of country codes, find ...
+1. all adverse reactions common to all those countries, and 
+2. adverse reactions occuring in only one country
 """
 
 import json
@@ -12,6 +11,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 def reactionsInCountry(countrycode):
+    """all reactions and their counts occuring in specific country code"""
     query='https://api.fda.gov/drug/event.json?search=occurcountry:"'+countrycode+'"&count=patient.reaction.reactionmeddrapt.exact'
     response = requests.get(query)
     drugs = json.loads(response.text)
@@ -21,6 +21,7 @@ def reactionsInCountry(countrycode):
     return d
 
 def displayMajorReactionsInCountry(countrycode,fname=None, nmajor=12):
+    """pie chart to display nmajor reactions (sorted by count) occuring in a specific country""" 
     d=reactionsInCountry(countrycode)
     dsort=sorted(d.items(), key=lambda x: x[1], reverse=True)
     reactions=[]
@@ -45,6 +46,9 @@ def displayMajorReactionsInCountry(countrycode,fname=None, nmajor=12):
         plt.savefig(fname) 
 
 def reactionsByCountry(countrylist):
+    """ get reactions for a list of countries
+        return dictionary whose keys are reactions and values are the countries they occur in"""
+    
     d={}
     for country in countrylist:
         dic=reactionsInCountry(country)
