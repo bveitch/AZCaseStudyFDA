@@ -1,5 +1,5 @@
 """
-Plot Graph of all drugs (and their children) taken with Vitmain D.
+Plot Graph of all drugs (and their children) taken with Vitmain D for 20 patients in Canada showing serious symptoms.
 Can be generalized to any drug.
 """
 
