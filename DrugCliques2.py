@@ -65,7 +65,7 @@ def rootedGraph(d,root):
 
 root='VITAMIN D'
 adj=getAdjacencyDict()
-d_vitd=rootedGraph(adj,root)
+(V,E)=rootedGraph(adj,root)
 
 G=nx.Graph()
      
